@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset='utf-8'>
+  <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+  <title>Page Title</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+</head>
+
+<body>
+  <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
+  <script>
+
+    const options = {
+      // 超时时间
+      connectTimeout: 4000,
+
+      // 认证信息
+      clientId: 'emqx',
+      // username: 'emqx',
+      // password: 'emqx',
+
+      // 心跳时间
+      keepalive: 60,
+      clean: true,
+    }
+
+    // WebSocket 连接字符串
+    const WebSocket_URL = 'ws://localhost:8083/mqtt'
+
+    // TCP/TLS 连接字符串，仅限 Node.js 环境
+    const TCP_URL = 'mqtt://localhost:1883'
+    const TCP_TLS_URL = 'mqtts://localhost:8883'
+
+    const client = mqtt.connect(WebSocket_URL, options)
+
+    client.on('connect', () => {
+      console.log('连接成功')
+      client.publish('device', 'hello EMQ X', (error) => {
+        console.log(error || '消息发布成功')
+      })
+    })
+
+    client.on('reconnect', (error) => {
+      console.log('正在重连:', error)
+    })
+
+    client.on('error', (error) => {
+      console.log('连接失败:', error)
+    })
+  </script>
+</body>
+
+</html>
