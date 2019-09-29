@@ -1,18 +1,14 @@
 # mqtt
+> 连接mqtt，对mqtt进行管理
 
-## Run service by using:
-```sh
-$ make run
+## 运行
+```
+make run
 ```
 
-# 启动emqx
-./bin/emqx start
+## 依赖
 
-# 检查运行状态
-./bin/emqx_ctl status
+* mysql
+* emqx
+* redis
 
-# 停止emqx
-./bin/emqx stop
-
-# info
-控制台地址: (http://127.0.0.1:18083)[http://127.0.0.1:18083]，默认用户名: admin，密码：public
