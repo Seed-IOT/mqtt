@@ -7,7 +7,7 @@
 - [ ] 协议变更
 - [ ] 协议删除
 - [ ] 协议查询
-- [ ] 推送协议到lwm2m
+- [ ] ACL
 
 ## 运行
 ```
@@ -19,7 +19,3 @@ make run
 * mysql
 * emqx
 * redis
-
-## lwm2m
-
-* [lwm2m](./README/lwm2m.md)协议备注

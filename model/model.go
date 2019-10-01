@@ -50,6 +50,8 @@ func newDB(dbCfg *config.Database) (*gorm.DB, error) {
 	db.DB().SetMaxOpenConns(dbCfg.MaxActive)
 	db.DB().SetMaxIdleConns(dbCfg.MaxIdle)
 
+	db.AutoMigrate(Protocol{})
+
 	db.LogMode(dbCfg.LogMode)
 
 	return db, nil

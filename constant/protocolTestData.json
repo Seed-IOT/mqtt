@@ -1,0 +1,14 @@
+{
+  "name": "test",
+  "description": "test",
+  "protocolVersion": "1.0",
+  "dataPoint": [
+    {
+      "name": "bool",
+      "description": "bool",
+      "type": "bool",
+      "operations": "RW",
+      "len": "1"
+    }
+  ]
+}
